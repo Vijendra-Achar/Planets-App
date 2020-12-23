@@ -22,7 +22,7 @@ function NavBar() {
           <ul className='navbar-nav'>
             <Link to='/'>
               <li className='nav-item'>
-                <a className='nav-link' aria-current='page' href='#'>
+                <a className='nav-link' aria-current='page'>
                   All Planets
                 </a>
               </li>
@@ -30,9 +30,7 @@ function NavBar() {
 
             <Link to='/favs'>
               <li className='nav-item'>
-                <a className='nav-link' href='#'>
-                  Your Favourites
-                </a>
+                <a className='nav-link'>Your Favourites</a>
               </li>
             </Link>
           </ul>

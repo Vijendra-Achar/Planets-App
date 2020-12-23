@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 
 function Planets() {
   const [planets, setPlanets] = useState([]);
-  const [favPlanets, setFavPlanets] = useState([]);
 
   useEffect(() => {
     getPlanets();
@@ -14,6 +13,24 @@ function Planets() {
     setPlanets(data);
   };
 
+  const saveToFavs = (ev) => {
+    let favs = localStorage.getItem('favs');
+    let arr = [];
+
+    let value = ev.target.dataset.planet;
+
+    if (favs) {
+      arr = JSON.parse(favs);
+      arr.push(value);
+      arr = Array.from(new Set(arr));
+      localStorage.setItem('favs', JSON.stringify(arr));
+    } else {
+      arr = [];
+      arr.push(value);
+      localStorage.setItem('favs', JSON.stringify(arr));
+    }
+  };
+
   return (
     <div>
       {planets.map((planet) => (
@@ -21,7 +38,9 @@ function Planets() {
           <li className='list-group-item d-flex justify-content-between align-items-center'>
             {planet.name}
             <span>
-              <button className='btn btn-primary'>Add to Fav</button>
+              <button data-planet={planet.id} onClick={saveToFavs} className='btn btn-primary'>
+                Add to Fav
+              </button>
             </span>
           </li>
         </ul>

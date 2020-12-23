@@ -65,3 +65,7 @@ li,
 a {
   text-decoration: none;
 }
+
+.toTitle {
+  text-transform: capitalize;
+}
