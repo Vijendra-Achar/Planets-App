@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+ul {
+  list-style-position: inside;
+  list-style: none;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +40,28 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.myMargin {
+  margin-top: 2em;
+}
+
+.display-5 {
+  font-weight: bold;
+}
+
+.navbar-brand {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.myApp {
+  display: inline-block;
+  width: 40%;
+  margin-bottom: 100px;
+}
+
+li,
+a {
+  text-decoration: none;
 }
