@@ -36,7 +36,7 @@ export default class YourFavPlanets extends React.Component {
   }
 
   render() {
-    if (this.state.favPlanets.length > 0) {
+    if (this.state.favPlanets && this.state.favPlanets.length > 0) {
       return (
         <div className='App myMargin'>
           <br />

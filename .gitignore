@@ -19,6 +19,7 @@
 .env.production.local
 debug.log
 .eslintcache
+.firebase
 
 npm-debug.log*
 yarn-debug.log*
