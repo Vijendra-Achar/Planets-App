@@ -6,6 +6,7 @@ export default class Planets extends React.Component {
 
     this.state = {
       planet: [],
+      favArrObj: {},
     };
 
     this.myFavs = JSON.parse(localStorage.getItem('favs'));
@@ -26,6 +27,23 @@ export default class Planets extends React.Component {
         arr.push(value);
         localStorage.setItem('favs', JSON.stringify(arr));
       }
+
+      if (this.state.favArrObj.hasOwnProperty(value)) {
+        alert(`${value} already exists in your List 💥`);
+      } else {
+        alert(`${value} has been added to your Favourite list ✔`);
+      }
+
+      this.makeFavObjects();
+    };
+
+    this.makeFavObjects = () => {
+      let favArr = JSON.parse(localStorage.getItem('favs'));
+      if (favArr) {
+        for (let ele of favArr) {
+          this.state.favArrObj[ele] = 1;
+        }
+      }
     };
   }
 
@@ -44,9 +62,9 @@ export default class Planets extends React.Component {
     this.setState({
       planet: arr,
     });
-  }
 
-  async componentDidUpdate(prevProps, prevState, snapshot) {}
+    this.makeFavObjects();
+  }
 
   render() {
     return (
@@ -56,13 +74,15 @@ export default class Planets extends React.Component {
             <li className='list-group-item d-flex justify-content-between align-items-center toTitle'>
               {planet}
               <span>
-                <button
-                  data-planet={planet}
-                  aria-disabled={this.myFavs.includes(planet) ? true : false}
-                  onClick={this.saveToFavs}
-                  className='btn btn-primary'>
-                  Add to Fav
-                </button>
+                <div>
+                  {this.state.favArrObj.hasOwnProperty(planet) ? (
+                    <p>Added</p>
+                  ) : (
+                    <button data-planet={planet} onClick={this.saveToFavs} className='btn btn-primary'>
+                      Add to Fav
+                    </button>
+                  )}
+                </div>
               </span>
             </li>
           </ul>
