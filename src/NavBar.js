@@ -5,8 +5,8 @@ function NavBar() {
   return (
     <nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
       <div className='container-fluid'>
-        <Link to='/'>
-          <a className='navbar-brand'>Planets</a>
+        <Link className='navbar-brand' to='/'>
+          Planets
         </Link>
         <button
           className='navbar-toggler'
@@ -20,19 +20,17 @@ function NavBar() {
         </button>
         <div className='collapse navbar-collapse' id='navbarNav'>
           <ul className='navbar-nav'>
-            <Link to='/'>
-              <li className='nav-item'>
-                <a className='nav-link' aria-current='page'>
-                  All Planets
-                </a>
-              </li>
-            </Link>
+            <li className='nav-item'>
+              <Link className='nav-link' to='/'>
+                All Planets
+              </Link>
+            </li>
 
-            <Link to='/favs'>
-              <li className='nav-item'>
-                <a className='nav-link'>Your Favourites</a>
-              </li>
-            </Link>
+            <li className='nav-item'>
+              <Link className='nav-link' to='/favs'>
+                Your Favourites
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
