@@ -1,5 +1,13 @@
 import React from 'react';
 
+const toTitleCase = (str) => {
+  str = str.toLowerCase().split(' ');
+  for (var i = 0; i < str.length; i++) {
+    str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
+  }
+  return str.join(' ');
+};
+
 export default class Planets extends React.Component {
   constructor(props) {
     super(props);
@@ -29,9 +37,9 @@ export default class Planets extends React.Component {
       }
 
       if (this.state.favArrObj.hasOwnProperty(value)) {
-        alert(`${value} already exists in your List 💥`);
+        alert(`${toTitleCase(value)} already exists in your List 💥`);
       } else {
-        alert(`${value} has been added to your Favourite list ✔`);
+        alert(`${toTitleCase(value)} has been added to your Favourite list ✔`);
       }
 
       this.makeFavObjects();
